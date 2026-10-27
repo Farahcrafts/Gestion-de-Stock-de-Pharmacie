@@ -8,9 +8,10 @@ import jakarta.persistence.Id;
 @Entity
 public class Tag {
 	
-	@Id 
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private Long produit_id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	private String libelle;
 
@@ -26,5 +27,15 @@ public class Tag {
 		this.libelle = libelle;
 	}
 
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long produit_id) {
+		this.id = produit_id;
+	}
+	public void setProduit_id(Long id2) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

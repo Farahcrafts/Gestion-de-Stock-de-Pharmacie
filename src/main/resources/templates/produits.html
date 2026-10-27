@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Produits</title>
+</head>
+<body>
+  <h1>Liste des produits</h1>
+  <table border="1">
+    <tr>
+      <th>Nom</th>
+      <th>Prix</th>
+      <th>Catégorie</th>
+      <th>Fournisseur</th>
+      <th>Tags</th>
+    </tr>
+    <tr th:each="p : ${produits}">
+      <td th:text="${p.nom}"></td>
+      <td th:text="${p.prix}"></td>
+      <!-- Affichage des relations avec un point -->
+      <td th:text="${p.categorie != null ? p.categorie.nom : 'N/A'}"></td>
+      <td th:text="${p.fournisseur != null ? p.fournisseur.nom : 'N/A'}"></td>
+      <td>
+        <!-- Boucle imbriquée pour les tags -->
+        <span th:each="t : ${p.tags}" th:text="${t.libelle} + ' '"></span>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
